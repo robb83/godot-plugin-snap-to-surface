@@ -1,4 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://duape7f3ohw55"]
+[gd_scene load_steps=13 format=3 uid="uid://duape7f3ohw55"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_f53xv"]
+radius = 0.25
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sgohx"]
+radius = 0.25
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_jarxt"]
+radius = 0.25
 
 [sub_resource type="BoxMesh" id="BoxMesh_hild0"]
 
@@ -24,17 +33,35 @@ text = "Hello"
 [node name="CSG" type="Node3D" parent="."]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSG"]
-transform = Transform3D(0, 0.92388, 0.382683, 1, 0, 0, 0, 0.382683, -0.92388, -0.204468, 1.83799, 6.76708)
+transform = Transform3D(0, 0.92388, 0.382683, 1, 0, 0, 0, 0.382683, -0.92388, 3.21752, 2.17304, 6.60997)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSG"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.35177)
+transform = Transform3D(-0.816497, 0.288675, 0.5, 0.57735, 0.408248, 0.707107, 0, 0.866026, -0.5, -2.41931, 3.66931, -3.0885)
 height = 4.0
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="CSG"]
-transform = Transform3D(-0.707107, -0.5, 0.5, -5.96046e-08, 0.707107, 0.707107, -0.707107, 0.5, -0.5, 0.499058, 3.88941, -12.5912)
+transform = Transform3D(-0.771979, 0.161676, 0.614743, 0.635648, 0.196352, 0.746591, 0, 0.967113, -0.254349, 6.04633, 2.4863, -0.800118)
+
+[node name="@Area3D@39045" type="Area3D" parent="CSG/CSGPolygon3D"]
+transform = Transform3D(1, -5.96046e-08, 1.49012e-08, 0, -8.9407e-08, 1, -2.98023e-08, -1, -8.9407e-08, 0.419872, 1, -0.427205)
+
+[node name="@CollisionShape3D@39044" type="CollisionShape3D" parent="CSG/CSGPolygon3D/@Area3D@39045"]
+shape = SubResource("SphereShape3D_f53xv")
+
+[node name="@Area3D@39385" type="Area3D" parent="CSG/CSGPolygon3D"]
+transform = Transform3D(1, -4.47035e-08, -5.96046e-08, 5.96046e-08, 1, 1.49012e-07, 5.96046e-08, -1.19209e-07, 1, 0.454956, 0.405398, -2.38419e-07)
+
+[node name="@CollisionShape3D@39384" type="CollisionShape3D" parent="CSG/CSGPolygon3D/@Area3D@39385"]
+shape = SubResource("SphereShape3D_sgohx")
+
+[node name="@Area3D@39725" type="Area3D" parent="CSG/CSGPolygon3D"]
+transform = Transform3D(-5.96046e-08, 2.98023e-08, -1, 0.5, 0.866026, -3.37951e-08, 0.866026, -0.5, -7.45058e-08, 0, 0.714903, -0.29351)
+
+[node name="@CollisionShape3D@39724" type="CollisionShape3D" parent="CSG/CSGPolygon3D/@Area3D@39725"]
+shape = SubResource("SphereShape3D_jarxt")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="CSG"]
-transform = Transform3D(0.5, 0.292415, -0.815165, -0.866025, 0.168826, -0.470635, 0, 0.941271, 0.337652, 1.57744, 0.130074, 4.13235)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.74502, 0.335196, -5.42456)
 
 [node name="CSGTorus3D" type="CSGTorus3D" parent="CSG"]
 transform = Transform3D(-0.816497, 0.288675, 0.5, 0.57735, 0.408248, 0.707107, 0, 0.866025, -0.5, 3.26595, 3.4051, -5.60603)
@@ -43,26 +70,27 @@ transform = Transform3D(-0.816497, 0.288675, 0.5, 0.57735, 0.408248, 0.707107, 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3209, 2.4616, -3.53136)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSG/CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.63643, 0, 0)
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="CSG/CSGCombiner3D"]
-transform = Transform3D(-0.382316, 0.614743, 0.689874, -8.9407e-08, 0.746591, -0.665284, -0.924032, -0.254348, -0.285433, 3.19407, 1.09281, -0.0638397)
+transform = Transform3D(-0.382316, 0.614743, 0.689874, -8.9407e-08, 0.746591, -0.665284, -0.924032, -0.254348, -0.285433, 0.253478, -0.731048, 3.30384)
 
 [node name="Mesh" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh"]
-transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, -0.0728216, 2, 6.0845)
+transform = Transform3D(-1, 0, 0, 0, 2.98023e-08, 1, 0, 1, -2.98023e-08, 5.24471, 2.88808, 6.5082)
 mesh = SubResource("BoxMesh_hild0")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Mesh"]
-transform = Transform3D(-0.816497, 0.288675, -0.5, -0.57735, -0.408248, 0.707107, 0, 0.866025, 0.5, 2.78371, 2.96973, -5.32581)
+transform = Transform3D(-0.816497, 0.288675, 0.5, 0.57735, 0.408248, 0.707107, 0, 0.866026, -0.5, -2.06574, 0.808282, -2.05955)
 mesh = SubResource("CapsuleMesh_qhxt3")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Mesh"]
-transform = Transform3D(0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, 2.16741, 3.08188, -6.10071)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.664791, -0.726058, -4.732)
 mesh = SubResource("CylinderMesh_78i7a")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Mesh"]
-transform = Transform3D(-0.707107, 0.5, 0.5, 0, 0.707107, -0.707107, -0.707107, -0.5, -0.5, 2.76549, 3.45699, -6.03311)
+transform = Transform3D(-0.707107, 0.5, 0.5, 0, 0.707107, -0.707107, -0.707107, -0.5, -0.5, -1.73466, 0.946527, -1.53296)
 mesh = SubResource("PlaneMesh_l8q2h")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="Mesh"]
@@ -70,7 +98,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.50104, 0, -5.2268)
 mesh = SubResource("QuadMesh_hxxh7")
 
 [node name="MeshInstance3D6" type="MeshInstance3D" parent="Mesh"]
-transform = Transform3D(-0.228365, -0.00458306, -0.973565, -0.973576, 0.00107502, 0.228363, 0, 0.999989, -0.00470746, 2.06214, 0.150858, 4.22092)
+transform = Transform3D(-0.228365, -0.00458306, -0.973565, -0.973576, 0.00107502, 0.228363, 0, 0.999989, -0.00470746, -1.22797, 0.922599, 4.20501)
 mesh = SubResource("PrismMesh_dotym")
 
 [node name="MeshInstance3D7" type="MeshInstance3D" parent="Mesh"]
@@ -78,9 +106,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6865, 0, -2.32631)
 mesh = SubResource("TextMesh_71q6i")
 
 [node name="MeshInstance3D8" type="MeshInstance3D" parent="Mesh"]
-transform = Transform3D(0, 0.382684, -0.92388, -1, 0, 0, 0, 0.92388, 0.382684, 0.38202, -0.438802, 6.06694)
+transform = Transform3D(0, 0.382684, -0.92388, -1, 0, 0, 0, 0.92388, 0.382684, 1.65842, 1.59921, 3.50256)
 mesh = SubResource("TorusMesh_rbdca")
 
 [node name="MeshInstance3D9" type="MeshInstance3D" parent="Mesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4969, 4.10654, -2.91579)
+transform = Transform3D(-0.816497, -0.5, 0.288675, 0.57735, -0.707107, 0.408248, 0, 0.5, 0.866026, -2.19054, 4.53912, -1.26539)
 mesh = SubResource("TubeTrailMesh_8nwwm")
